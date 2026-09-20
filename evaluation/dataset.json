@@ -1,0 +1,4 @@
+[
+  {"question": "What dataset was used?", "expected_source_terms": ["dataset"]},
+  {"question": "What are the limitations?", "expected_source_terms": ["limitation"]}
+]

@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/
+data/uploads/*
+data/vectorstore/*
+data/*.db
+!data/uploads/.gitkeep
+!data/vectorstore/.gitkeep
