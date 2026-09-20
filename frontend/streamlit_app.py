@@ -1,3 +1,14 @@
+import sys
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR))
+
+import plotly.express as px
+import streamlit as st
+
+from app.container import ingestion_service, metadata_store, rag_service
+from app.services.extraction import summarize_paper
 """Streamlit UI for the AI Research Paper Intelligence Platform."""
 
 import sys
