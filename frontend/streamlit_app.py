@@ -1,5 +1,11 @@
 """Streamlit UI for the AI Research Paper Intelligence Platform."""
 
+import sys
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR))
+
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -75,7 +81,7 @@ elif section == "Compare papers":
     st.subheader("Compare your evidence")
     selected = st.multiselect("Select papers", papers, format_func=lambda paper: paper.metadata.title)
     if selected:
-        rows = [{"Paper": paper.metadata.title, "Problem": paper.metadata.research_problem or "Not extracted", "Methodology": paper.metadata.methodology or "Not extracted", "Dataset": paper.metadata.dataset or "Not extracted", "Results": paper.metadata.results or "Not extracted", "Limitations": paper.metadata.limitations or "Not extracted"} for paper in selected]
+        rows = [{"Paper": paper.metadata.title, "Problem": paper.metadata.research_problem or "Not extracted", "Methodology": paper.metadata.methodology or "Not extracted", "Dataset": paper.metadata.dataset or "Not extracted"} for paper in selected]
         st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 elif section in {"Dashboard", "Analytics"}:
     st.subheader("Research analytics")
